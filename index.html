@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ICT Web Portfolio - Home</title>
+<style>
+    :root {
+        --navy: #102a43;
+        --navy-dark: #091c2e;
+        --blue: #1f5f78;
+        --teal: #2d7d86;
+        --teal-light: #75bfc1;
+        --gold: #d8aa45;
+        --gold-light: #f1d98a;
+        --cream: #f7f5ef;
+        --white: #ffffff;
+        --ink: #18303d;
+        --muted: #607580;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        margin: 0;
+        font-family: "Trebuchet MS", Verdana, sans-serif;
+        color: var(--ink);
+        line-height: 1.6;
+      background-color: var(--cream);
+
+        /*
+        Subtle dot pattern.
+        Keeps the page interesting without
+        competing with the content.
+        */
+        background-image:
+            radial-gradient(
+                rgba(16,42,67,0.13) 1px,
+                transparent 1px
+            );
+
+        background-size: 22px 22px;
+        overflow-x: hidden;
+    }
+
+
+    /* ==================================================
+       HEADER
+    ================================================== */
+    header {
+        position: relative;
+        min-height: 330px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 65px 25px;
+        text-align: center;
+        color: white;
+        background:
+            linear-gradient(
+                135deg,
+                var(--navy-dark) 0%,
+                var(--navy) 45%,
+                var(--blue) 75%,
+                var(--teal) 100%
+            );
+
+        border-bottom: 5px solid var(--gold);
+        overflow: hidden;
+        box-shadow:
+            0 12px 30px rgba(16,42,67,0.20);
+    }
+
+
+    /*
+    Decorative teal grid
+    */
+
+    header::before {
+        content: "";
+        position: absolute;
+
+        width: 230px;
+        height: 230px;
+
+        left: -85px;
+        top: 50%;
+
+        transform: translateY(-50%) rotate(15deg);
+
+        border: 2px solid rgba(117,191,193,0.25);
+        background:
+            linear-gradient(
+                90deg,
+                transparent 48%,
+                rgba(117,191,193,0.18) 49%,
+                rgba(117,191,193,0.18) 51%,
+                transparent 52%
+            ),
+            linear-gradient(
+                0deg,
+                transparent 48%,
+                rgba(117,191,193,0.18) 49%,
+                rgba(117,191,193,0.18) 51%,
+                transparent 52%
+            );
+        background-size: 35px 35px;
+        opacity: 0.8;
+    }
+
+    /*
+    Gold decorative shape
+    */
+
+    header::after {
+        content: "✦";
+        position: absolute;
+        right: 8%;
+        top: 45%;
+        transform: translateY(-50%);
+        color: var(--gold);
+        font-size: 55px;
+        opacity: 0.75;
+    }
+
+    /* HEADER TITLE */
+
+    header h1 {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+        font-family: "Arial Black",
+            "Trebuchet MS",
+            sans-serif;
+
+        font-size: clamp(
+            2.3rem,
+            6vw,
+            4.2rem
+        );
+
+        line-height: 1.05;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-shadow:
+            4px 4px 0 rgba(0,0,0,0.25);
+    }
+
+    /*
+    Small gold line underneath title
+    */
+
+    header h1::after {
+        content: "";
+        display: block;
+        width: 65px;
+        height: 4px;
+        margin: 16px auto 0;
+        background: var(--gold);
+        border-radius: 10px;
+    }
+
+
+    /* GROUP NAME */
+
+    header p {
+        position: relative;
+        z-index: 2;
+        margin: 18px 0 0;
+        padding: 7px 17px;
+        color: var(--navy);
+        background: var(--gold-light);
+        border: 2px solid var(--gold);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+       box-shadow:
+            3px 3px 0 rgba(0,0,0,0.22);
+    }
+
+
+    /* ==================================================
+       NAVIGATION
+    ================================================== */
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        padding: 13px;
+        background: rgba(16,42,67,0.97);
+        border-bottom: 3px solid var(--gold);
+        box-shadow:  0 5px 20px rgba(16,42,67,0.20);
+        backdrop-filter: blur(10px);
+    }
+
+
+    nav a {
+        position: relative;
+        display: inline-block;
+        padding: 7px 17px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 25px;
+        transition:  0.25s ease;
+    }
+
+
+    nav a:hover {
+        color: var(--gold-light);
+        background: rgba(45,125,134,0.25);
+        border-color: rgba(216,170,69,0.4);
+        transform: translateY(-2px);
+    }
+
+
+    nav a::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 2px;
+        width: 0;
+        height: 3px;
+        background: var(--gold);
+        border-radius: 10px;
+        transform:   translateX(-50%);
+        Transition:  width 0.25s ease;
+    }
+
+
+    nav a:hover::after {
+        width: 55%;
+    }
+
+
+    /* ==================================================
+       MAIN PORTFOLIO CARD
+    ================================================== */
+
+    .card {
+        position: relative;
+        max-width: 900px;
+        margin: 55px auto;
+        padding: 45px;
+        Background:  rgba(255,255,255,0.93);
+        Border: 2px solid rgba(45,125,134,0.25);
+
+        border-radius: 18px;
+        box-shadow:
+            8px 8px 0 rgba(16,42,67,0.12),
+            0 18px 40px rgba(16,42,67,0.10);
+        text-align: center;
+        transition: transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+
+    .card:hover {
+        transform:  translateY(-4px);
+        box-shadow: 10px 12px 0 rgba(16,42,67,0.14),
+            0 22px 45px rgba(16,42,67,0.13);
+    }
+
+
+    /*
+    Tiny portfolio label
+    */
+
+    .card::before {
+        content: "DIGITAL PORTFOLIO";
+        position: absolute;
+        top: -13px;
+        left: 28px;
+        padding: 4px 11px;
+        background: var(--teal);
+        color: white;
+        Border:  2px solid var(--navy);
+        border-radius: 5px;
+        font-size: 0.65rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        Transform:  rotate(-2deg);
+        Box-shadow:  3px 3px 0 var(--navy);
+    }
+
+
+    .card::after {
+        content: "✦";
+        position: absolute;
+        right: 25px;
+        top: 15px;
+        color: var(--gold);
+        font-size: 25px;
+    }
+
+
+    /* ==================================================
+       HEADINGS
+    ================================================== */
+
+    h2 {
+        color: var(--navy);
+
+        Margin: 0 0 18px;
+        Font-size:  clamp(1.5rem, 4vw, 2.2rem);
+        Letter-spacing:    0.5px;
+    }
+
+
+    h2::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 3px;
+        Margin:  8px auto 0;
+        Background: linear-gradient(
+                90deg,
+                var(--teal),
+                var(--gold)
+            );
+        border-radius: 10px;
+    }
+
+
+    /* ==================================================
+       WELCOME
+    ================================================== */
+
+    #greetings > .card {
+        margin-top: 60px;
+    }
+
+
+    #greetings > .card > h2:first-child {
+        color: var(--teal);
+        font-size: 1rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    #greetings > .card > h2:nth-child(2) {
+        display: block;
+
+        max-width: 720px;
+        margin:12px auto 28px;
+        padding: 20px 25px;
+        color: white;
+        Background: linear-gradient(
+                120deg,
+                var(--navy),
+                var(--blue)
+            );
+
+        border-radius: 14px;
+
+        Box-shadow: 6px 6px 0 var(--gold);
+        Font-size:   clamp(1.5rem, 4vw, 2.5rem);
+        Line-height: 1.2;
+    }
+
+
+    #greetings > .card > h2:nth-child(2)::after {
+        display: none;
+    }
+
+
+    /* ==================================================
+       PARAGRAPHS
+    ================================================== */
+
+    #greetings p {
+        max-width: 720px;
+        Margin:   17px auto;
+        color: var(--muted);
+        font-size: 0.98rem;
+    }
+
+
+    #greetings > .card > p {
+        Padding:  14px 20px;
+        Background:  rgba(45,125,134,0.06);
+        Border-left:  4px solid var(--teal);
+        Border-radius: 7px;
+    }
+
+
+    /* ==================================================
+       TEAM TITLE
+    ================================================== */
+
+    #greetings > .card > h2:last-of-type {
+        margin-top: 15px;
+
+        color: var(--navy);
+    }
+
+
+    /* ==================================================
+       TEAM CARD
+    ================================================== */
+
+    #greetings > .card > .card {
+        max-width: 720px;
+
+        Margin: 28px auto 0;
+        Padding:  32px 28px;
+        Background:  linear-gradient(
+                145deg,
+                #f5faf9,
+                #ffffff
+            );
+
+        border:
+            2px solid rgba(216,170,69,0.45);
+        border-top:  5px solid var(--teal);
+        border-radius: 15px;
+        box-shadow: 7px 7px 0 rgba(216,170,69,0.20);
+    }
+
+
+    #greetings > .card > .card::before {
+        content: "OUR TEAM";
+        background: var(--gold);
+        color: var(--navy);
+        border-color: var(--navy);
+    }
+
+
+    #greetings > .card > .card h3 {
+        margin-top: 0;
+        color: var(--navy);
+        font-size: 1.15rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    #greetings > .card > .card h3::before {
+        content: "✦ ";
+
+        color: var(--gold);
+    }
+
+
+    /* ==================================================
+       MEMBER LIST
+    ================================================== */
+
+    .member-list {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 0;
+    }
+
+
+    .member-list li {
+        position: relative;
+        margin: 11px 0;
+        padding: 14px 18px;
+
+        color: var(--ink);
+
+        background: white;
+
+        border:1px solid rgba(45,125,134,0.25);
+
+        border-left: 5px solid var(--teal);
+
+        border-radius:9px;
+
+        text-align: left;
+
+        box-shadow: 3px 3px 0 rgba(16,42,67,0.08);
+
+        transition: 0.25s ease;
+    }
+
+
+    /*
+    Gold accent alternates through
+    the member cards.
+    */
+
+    .member-list li:nth-child(2),
+    .member-list li:nth-child(4) {
+        border-left-color:var(--gold);
+    }
+
+    .member-list li::before {
+ content: "◆";
+
+        margin-right: 10px;
+
+        color: var(--gold);
+
+        font-size:  0.65rem;
+    }
+
+
+    .member-list li:hover {
+        transform:
+            translateX(7px);
+        background: linear-gradient(  90deg,
+                rgba(45,125,134,0.10),
+                white
+            );
+
+        box-shadow:
+            6px 5px 0
+            rgba(216,170,69,0.25);
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    footer {
+        position: relative;
+        margin-top: 75px;
+        padding: 32px 20px;
+        color: white;
+        text-align: center;
+        background: linear-gradient(
+                135deg,
+                var(--navy-dark),
+                var(--navy),
+                var(--blue)
+            );
+
+        border-top:
+            5px solid var(--gold);
+    }
+
+
+    footer::before {
+        content:
+            "✦  HTML  •  CSS  •  CREATIVITY  ✦";
+
+        display: block;
+        margin-bottom: 9px;
+        color: var(--gold-light);
+        font-size: 0.72rem;
+
+        letter-spacing: 2px;
+    }
+
+
+    footer p {
+        margin: 0;
+        color:  rgba(255,255,255,0.85);
+
+        font-size:  0.85rem;
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media (max-width: 700px) {
+
+        header {
+            min-height: 280px;
+            Padding:  55px 18px;
+        }
+
+        header h1 {
+            font-size:  2.2rem;
+        }
+
+        header::before {
+            width: 150px;
+            height: 150px;
+            left: -90px;
+        }
+
+        header::after {
+            right: 4%;
+            font-size: 35px;
+        }
+        nav {
+         gap: 3px;
+            Padding:  10px 5px;
+        }
+        nav a {
+            Padding:  6px 11px;
+            Font-size:  0.82rem;
+        }
+        .card {
+            Margin:  45px 14px;
+            Padding: 35px 20px;
+            Border-radius:  15px;
+        }
+        #greetings > .card > h2:nth-child(2) {
+            Font-size: 1.55rem;
+            padding: 16px;
+        }
+        #greetings > .card > .card {
+            Padding:  27px 15px;
+        }
+        .member-list li {
+            font-size:  0.84rem;
+        }
+    }
+
+
+    @media (max-width: 420px) {
+
+        header h1 {
+            Font-size:  1.8rem;
+        }
+
+        header p {
+            Font-size: 0.76rem;
+            Padding:  6px 12px;
+        }
+        nav a {
+            Font-size:  0.73rem;
+            Padding:  6px 8px;
+        }
+        .card {
+            Padding:  30px 15px;
+        }
+        #greetings > .card > h2:nth-child(2) {
+            Font-size: 1.35rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>Digital Task Portfolio</h1>
+        <p><strong>Group 5 | 10-St. Gregory The Great</strong></p>
+    </header>
+
+    <nav>
+        <a href="index.html" class="0">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reflection.html">Reflection</a>
+    </nav>
+
+    <section id="greetings">
+        <div class="card">
+            <h2><b>Welcome Vistors!</b></h2>
+            <h2><b>To our Web Portfolio where ideas become creations!</b></h2>
+            <br>
+            <br>
+            <p><b>A collection of our projects, artworks, skills, and experiences as students, and the knowledge we gained throughout our lessons.</b></p>
+            <p><b>Explore our work and see how we applied what we learned in HTML and CSS to create something of our own.</b></p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2><b>Meet Our Team</b></h2>
+        <p><b>We are a group of passionate students dedicated to showcasing our skills and creativity through this portfolio. Each member brings unique talents and perspectives, contributing to the success of our projects.</b></p>
+        <br>
+        <div class="card">
+            <h3><b>Members and Contributions:</b></h3>
+            <ul class="member-list">
+                <li><b>HTML Web Developer - Ken Johann Erero</b></li>
+                <li><b>CSS Web Designer - Rizchel Faith Dotdot</b></li>
+                <li><b>Content Compiler - Asha Castañeda</b></li>
+                <li><b>Visual Artist - Princess Kyla Manangan</b></li>
+                <li><b> - Lance Khaizen Acain</b></li>
+            </ul>
+        </div>
+        </div>
+        </section>
+
+    <footer>
+        <p>2026 Group 5 - 10-St. Gregory The Great. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

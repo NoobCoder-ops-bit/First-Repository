@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ICT Web Portfolio - Reflection</title>
+<style>
+:root {
+    --navy:#102a43;
+    --navy-dark:#091c2e;
+    --blue:#1f5f78;
+    --teal:#2d7d86;
+    --teal-light:#75bfc1;
+    --gold:#d8aa45;
+    --gold-light:#f1d98a;
+    --cream:#f7f5ef;
+    --white:#fff;
+    --ink:#18303d;
+    --muted:#607580;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior:smooth;
+}
+
+body {
+    font-family:"Trebuchet MS",Verdana,sans-serif;
+    margin:0;
+    background-color:var(--cream);
+    background-image:radial-gradient(rgba(45,125,134,.12) 1px,transparent 1px);
+    background-size:22px 22px;
+    color:var(--ink);
+    line-height:1.6;
+}
+
+
+/* HEADER */
+
+header {
+    position:relative;
+    min-height:330px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:65px 25px;
+    text-align:center;
+    color:white;
+    background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 45%,var(--blue) 75%,var(--teal) 100%);
+    border-bottom:5px solid var(--gold);
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(16,42,67,.20);
+}
+
+header::before {
+    content:"";
+    position:absolute;
+    width:230px;
+    height:230px;
+    left:-85px;
+    top:50%;
+    transform:translateY(-50%) rotate(15deg);
+    border:2px solid rgba(117,191,193,.25);
+    background:linear-gradient(90deg,transparent 48%,rgba(117,191,193,.18) 49%,rgba(117,191,193,.18) 51%,transparent 52%),linear-gradient(0deg,transparent 48%,rgba(117,191,193,.18) 49%,rgba(117,191,193,.18) 51%,transparent 52%);
+    background-size:35px 35px;
+    opacity:.8;
+}
+
+header::after {
+    content:"✦";
+    position:absolute;
+    right:8%;
+    top:45%;
+    transform:translateY(-50%);
+    font-size:55px;
+    color:var(--gold);
+    opacity:.75;
+}
+
+header h1 {
+    position:relative;
+    z-index:2;
+    margin:0;
+    font-family:"Arial Black","Trebuchet MS",sans-serif;
+    font-size:clamp(2.3rem,6vw,4.2rem);
+    line-height:1.05;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-shadow:4px 4px 0 rgba(0,0,0,.25);
+}
+
+header h1::after {
+    content:"";
+    display:block;
+    width:65px;
+    height:4px;
+    margin:16px auto 0;
+    background:var(--gold);
+    border-radius:10px;
+}
+
+header p {
+    position:relative;
+    z-index:2;
+    display:inline-block;
+    margin:18px 0 0;
+    padding:7px 17px;
+    color:var(--navy);
+    background:var(--gold-light);
+    border:2px solid var(--gold);
+    border-radius:50px;
+    font-size:.9rem;
+    font-weight:bold;
+    letter-spacing:.5px;
+    box-shadow:3px 3px 0 rgba(0,0,0,.22);
+}
+
+
+/* NAVIGATION */
+
+nav {
+    background:var(--navy-dark);
+    text-align:center;
+    padding:15px 12px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:2px solid var(--gold);
+    box-shadow:0 5px 18px rgba(16,42,67,.18);
+}
+
+nav a {
+    color:white;
+    text-decoration:none;
+    display:inline-block;
+    margin:0 10px;
+    padding:8px 16px;
+    font-weight:bold;
+    border:1px solid transparent;
+    border-radius:20px;
+    transition:.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color:var(--navy-dark);
+    background:var(--gold);
+    border-color:var(--gold-light);
+    transform:translateY(-2px);
+    box-shadow:0 4px 10px rgba(216,170,69,.25);
+}
+
+
+/* SECTION */
+
+section {
+    padding:42px 20px;
+    text-align:center;
+}
+
+
+/* REFLECTION CARD */
+
+.card {
+    position:relative;
+    max-width:850px;
+    margin:0 auto;
+    padding:32px 40px;
+    background:rgba(255,255,255,.94);
+    border:2px solid rgba(45,125,134,.28);
+    border-radius:16px;
+    box-shadow:
+        7px 7px 0 rgba(216,170,69,.7),
+        0 12px 30px rgba(16,42,67,.12);
+    text-align:center;
+}
+
+.card::before {
+    content:"GROUP REFLECTION";
+    position:absolute;
+    top:-13px;
+    left:28px;
+    padding:4px 11px;
+    background:var(--teal);
+    color:white;
+    border:2px solid var(--navy);
+    border-radius:5px;
+    font-size:.65rem;
+    font-weight:bold;
+    letter-spacing:1px;
+    transform:rotate(-2deg);
+    box-shadow:3px 3px 0 var(--navy);
+}
+
+.card::after {
+    content:"✦";
+    position:absolute;
+    right:25px;
+    top:14px;
+    color:var(--gold);
+    font-size:25px;
+}
+
+
+/* TITLE */
+
+h2 {
+    color:var(--navy);
+    font-size:1.8rem;
+    margin:0 0 24px;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--gold);
+}
+
+h2::before {
+    content:"✦ ";
+    color:var(--gold);
+}
+
+h2::after {
+    content:" ✦";
+    color:var(--teal);
+}
+
+
+/* REFLECTION TEXT */
+
+.card p {
+    color:var(--muted);
+    margin:0 auto;
+}
+
+.card p:nth-of-type(odd) {
+    max-width:720px;
+    padding:16px 20px;
+    font-size:1rem;
+    line-height:1.65;
+    background:rgba(45,125,134,.06);
+    border-left:4px solid var(--teal);
+    border-radius:8px;
+}
+
+.card p:nth-of-type(even) {
+    color:var(--blue);
+    margin-top:7px;
+    margin-bottom:22px;
+    font-size:.9rem;
+}
+
+
+/* DIFFERENT ACCENTS PER REFLECTION */
+
+.card p:nth-of-type(3) {
+    border-left-color:var(--gold);
+}
+
+.card p:nth-of-type(5) {
+    border-left-color:var(--teal);
+}
+
+.card p:nth-of-type(7) {
+    border-left-color:var(--gold);
+}
+
+.card p:nth-of-type(9) {
+    border-left-color:var(--teal);
+}
+
+
+/* FOOTER */
+
+footer {
+    position:relative;
+    background:linear-gradient(120deg,var(--navy-dark),var(--navy),var(--blue));
+    color:white;
+    text-align:center;
+    padding:28px 20px;
+    margin-top:20px;
+    border-top:5px solid var(--gold);
+}
+
+footer::after {
+    content:"✦  ✦  ✦";
+    position:absolute;
+    top:8px;
+    right:20px;
+    color:var(--gold);
+    opacity:.6;
+    letter-spacing:8px;
+}
+
+footer p {
+    margin:0;
+    color:var(--gold-light);
+    font-size:.9rem;
+}
+
+
+/* MOBILE */
+
+@media (max-width:800px) {
+
+    header h1 {
+        font-size:2rem;
+    }
+}
+
+@media (max-width:600px) {
+
+    header {
+        padding:45px 16px 38px;
+    }
+
+    header h1 {
+        font-size:1.7rem;
+        letter-spacing:1px;
+    }
+
+    header::after {
+        right:4%;
+        font-size:35px;
+    }
+
+    nav {
+        padding:10px 5px;
+    }
+
+    nav a {
+        margin:3px;
+        padding:7px 10px;
+        font-size:.85rem;
+    }
+
+    section {
+        padding:30px 14px;
+    }
+
+    .card {
+        padding:30px 17px;
+    }
+
+    h2 {
+        font-size:1.35rem;
+        margin-bottom:20px;
+    }
+
+    h2::before,
+    h2::after {
+        display:none;
+    }
+
+    .card p:nth-of-type(odd) {
+        padding:13px 15px;
+        font-size:.9rem;
+    }
+
+    .card p:nth-of-type(even) {
+        font-size:.82rem;
+        margin-bottom:18px;
+    }
+}
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>Digital Task Portfolio</h1>
+        <p><strong>Group 5 | 10-St. Gregory The Great</strong></p>
+    </header>
+
+    <nav>
+        <a href="index.html" class="0">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reflection.html">Reflection</a>
+    </nav>
+
+    <section>
+        <div class="card">
+            <h2><b>Group Reflection</b></h2>
+            <p><b><i>"The tasks and works of our 1st Term taught me alot of important lessons about teamwork, communication, time management and made me grow as a individual and as a team member."</i></b></p>
+            <p><b>- Ken Johann Erero</b></p>
+            <br>
+            <br>
+            <p><b><i>"In the 1st Term, I learned that tasks are not just about compliance, but about discipline. Even though it was tiring, I realized that teamwork and time management really helped us to finish everything on time."</i></b></p>
+            <p><b>- Asha Castañeda</b></p>
+            <br>
+            <br>
+            <p><b><i>"Initially, I believed I wouldn’t gain anything from our studies, and that I could complete everything on my own without needing teamwork. However, I came to realize that working alone would only hold me back and prevent my teammates from learning. So, I started asking how I could contribute and delegated tasks to each member. Let us apply this to ourselves, we should be willing to help and cooperate, for if we always rely only on ourselves, no real change will ever happen."</i></b></p>
+            <p><b>- Princess Kyla Manangan</b></p>
+            <br>
+            <br>
+            <p><b><i>"I learned that these can help us develop our skills and confidence. I realized that being active, responsible, and willing to learn makes each activity more meaningful, even when some tasks were difficult, I learned something from every experience."</i></b></p>
+            <p><b>- Rizchel Faith Dotdot</b></p>
+            <br>
+            <br>
+            <p><b><i>"In our projects, I learned that cooperative teamwork, and accomplishing assigned responsibilities are important in completing tasks. I realized that working together and managing our time properly makes difficult tasks easier and helps everyone contribute and learn."</i></b></p>
+            <p><b>- Lance Khaizen Acain</b></p>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>2026 Group 5 - 10-St. Gregory The Great. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
